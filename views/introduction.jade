@@ -1,5 +1,51 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div#main
+		// begin header
+		header
+			div#logo
+				h1<strong> SOMEBODY.
+			nav
+				ul.sf-menu#nav
+					li
+						a(href="/") Home
+					li.selected
+						a(href="/introduction") Introduce
+					li
+						a(href="#") Portfolio
+						ul
+							li
+								a(href="/portfolio_one") Picture
+					li
+						a(href="#") Video
+						ul
+							li
+								a(href="/video_one") #1 Only One Bag?
+							li
+								a(href="/video_two") #2 Plastic Bag?
+					li
+						a(href="/blog") Blog
+					li
+						a(href="/schedule") Schedule
+					li
+						a(href="/contact") Contact
+		// begin content
+		div#site_content
+			div#left_content
+				h1<strong> 地球需要的不只是復仇者聯盟
+				h2 We Are SOMEBODY.
+
+				p   保護地球的任務，由復仇者聯盟完成後，剩下的交給Somebody來做。
+
+				p   Somebody是由一群愛護環境的台灣大學學生所組成，透過創新的藝術作品與活動推廣，號召大眾與Somebody一同愛護地球。有別於社會林立之環保團體，Somebody懷抱著新世代青年的無懼與創造力，企盼能為環保意識注入創新的活力，將人人都理解卻甚少落實的環保概念，深化植入人們的意識之中。
+
+				p   Somebody期望能夠藉由敝組織，將無意識製造垃圾的人們，透過與Somebody創造之藝術作品文化互動，不僅僅是減少塑膠袋使用量或者增加塑膠袋的回收量，而是能有意識得減少各種垃圾與珍惜回收資源。
+
+			div#right_content
+				img(style="float:left;" src="images/about1.jpg" title="about me" alt="about me")
+
+		// begin footer
+		include ./footer.jade
+
+

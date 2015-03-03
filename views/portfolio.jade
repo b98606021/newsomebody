@@ -1,5 +1,40 @@
 extends layout
+link(rel='stylesheet', href='/stylesheets/portfolio_one.css')
+script.
+	document.write('<style>.noscript { display: none; }</style>');
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div#main
+		// begin header
+		header
+			div#logo
+				h1<strong> SOMEBODY.
+			nav
+				ul.sf-menu#nav
+					li
+						a(href="/") Home
+					li
+						a(href="/introduction") Introduce
+					li.selected
+						a(href="#") Portfolio
+						ul
+							li
+								a(href="/portfolio_one") Picture
+					li
+						a(href="#") Video
+						ul
+							li
+								a(href="/video_one") #1 Only One Bag?
+							li
+								a(href="/video_two") #2 Plastic Bag?
+					li
+						a(href="/blog") Blog
+					li
+						a(href="/schedule") Schedule
+					li
+						a(href="/contact") Contact
+
+		// begin content
+		div#site_content
+			//start gallery HTML containers
+			div#thumb-container
