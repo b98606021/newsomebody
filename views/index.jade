@@ -1,5 +1,62 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div#main
+		// begin header
+		header
+			div#logo
+				h1<strong> SOMEBODY.
+			nav
+				ul.sf-menu#nav
+					li.selected
+						a(href="/") Home
+					li
+						a(href="/introduction") Introduce
+					li
+						a(href="#") Portfolio
+						ul
+							li
+								a(href="/porfolio_one") Picture
+					li
+						a(href="#") Video
+						ul
+							li
+								a(href="/video_one") #1 Only One Bag?
+							li
+								a(href="/video_two") #2 Plastic Bag?
+					li
+						a(href="/blog") Blog
+					li
+						a(href="/schedule") Schedule
+					li
+						a(href="/contact") Contact
+
+		// begin content
+		div#site_content
+			ul.slideshow
+				li.show
+					img(width="950" height="450" src="/images/cover1.jpg" alt="We are Somebody.")
+				li
+					img(width="950" height="450" src="/images/cover2.jpg" alt="We are Somebody.")
+				li
+					img(width="950" height="450" src="/images/cover3.jpg" alt="We are Somebody.")
+
+		// begin footer
+		footer
+			p Copyright &copy; 2012
+				a(href="#") SOMEBODY. 
+				ALL Rights Reserved.
+
+			P
+				a(href="http://www.facebook.com/pages/Somebody/415002401850623")
+					img(src="images/facebook.png" alt="facebook")
+
+	// Javascript
+	script(src='/js/jquery.min.js')
+	script(src='/js/jquery.easing-sooper.js')
+	script(src='/js/jquery.sooperfish.js')
+	script(src='/js/image_fade.js')
+	script
+		$(document).ready(function(){
+		$('ul.sf-menu').sooperfish();
+		});

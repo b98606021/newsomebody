@@ -31,9 +31,10 @@ app.get('/', index.index);
 app.get('/contact', contact.contact);
 app.get('/blog', blog.blog);
 app.get('/introduction', introduction.introduction);
-app.use('/portfolio', portfolio);
+app.get('/portfolio_one', portfolio.portfolio_one);
 app.get('/schedule', schedule.schedule);
-app.get('/video', video.video);
+app.get('/video1', video.video1);
+app.get('/video2', video.video2);
 
 
 // catch 404 and forward to error handler
