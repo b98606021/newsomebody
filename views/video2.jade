@@ -1,0 +1,61 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/dark.css')
+		link(rel='stylesheet', href='/stylesheets/portfolio_two.css')
+		script(src='/js/modernizr-1.5.min.js')
+		script(src='/js/jquery-1.10.2.min.js')
+		script(src='/js/jquery.min.js')
+		script(src='/js/jquery-1.9.1.js')
+
+body
+	div#main
+		// begin header
+		header
+			div#logo
+				h1<strong> SOMEBODY.
+			nav
+				ul.sf-menu#nav
+					li
+						a(href="/") Home
+					li
+						a(href="/introduction") Introduce
+					li
+						a(href="#") Portfolio
+						ul
+							li
+								a(href="/portfolio_one") Picture
+					li.selected
+						a(href="#") Video
+						ul
+							li
+								a(href="/video1") #1 Only One Bag?
+							li
+								a(href="/video2") #2 Plastic Bag?
+					li
+						a(href="/blog") Blog
+					li
+						a(href="/schedule") Schedule
+					li
+						a(href="/contact") Contact
+
+		// begin content
+		div#site_content
+			div(class="navigation-container")
+				div(id="thumbs" , class="navigation")
+					ul(class="thumbs noscript" )
+						h1(style="padding:0px 10px;") #2 How many plastic bags we use?
+						h4(style="padding:10px 0 10px 10px;") 塑膠袋的生命，或許只有我們吃雞排的那段時光，然後他隨即就要被丟進一個很大的垃圾袋裡，那裏早有一群塑膠袋為老死正在成群哀悼。
+						p(strong)(style="padding:10px 10px;")「需要塑膠袋嗎?」「不用了，謝謝！」
+						p(style="padding:10px 10px;") 雖然排隊很長，夜市很擠，食物很燙。
+						h5(style="padding:10px 10px;") We are somebody.
+						li
+							iframe(src="http://player.vimeo.com/video/39973346" width="950" height="450" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen)
+		
+		// footer
+		include ./footer.jade
+
+
+
