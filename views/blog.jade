@@ -1,5 +1,61 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div#main
+		// begin header
+		header
+			div#logo
+				h1<strong> SOMEBODY.
+			nav
+				ul.sf-menu#nav
+					li
+						a(href="/") Home
+					li
+						a(href="/introduction") Introduce
+					li
+						a(href="#") Portfolio
+						ul
+							li
+								a(href="/portfolio_one") Picture
+					li
+						a(href="#") Video
+						ul
+							li
+								a(href="/video1") #1 Only One Bag?
+							li
+								a(href="/video2") #2 Plastic Bag?
+					li.selected
+						a(href="/blog") Blog
+					li
+						a(href="/schedule") Schedule
+					li
+						a(href="/contact") Contact
+		// begin content
+		div#site_content
+			div#left_content
+				div#blog_container
+					div.blog
+						h2 May
+						h3 4th
+					h4.class
+						a(href="/blog") Somebody 網頁漸漸架設好囉！
+					p 接下來我們都會將 Somebody 的事物陸續放上來喔！ 最新資訊也都會在這個網頁更新，請大家密切注意喔，謝謝！
+						a(href="/blog") read more.....
+			div#right_content
+				div#blog_text
+					h1(strong) Somebody 網頁漸漸架設好囉！
+					p 接下來我們都會將 Somebody 的事物陸續放上來喔！ 最新資訊也都會在這個網頁更新，請大家密切注意喔，謝謝！
+					p 感謝目前為止以下綠色網站與 Somebody 的合作
+						a(href="http://www.searchouse.net/op/life?lid=260") ●Green inside
+						a(href="http://e-info.org.tw/node/76327") ●TEIA
+						a(href="http://www.facebook.com/searchouse.net") ●綠建築家
+						a(href="http://www.earthday.org.tw/node/5473") ●台灣地球日
+					p 特別感謝
+						a(href="http://flyingv.cc/project/33/") flying v
+						與我們合作並幫助募集資金
+					h2
+						a(href="http://www.facebook.com/pages/Somebody/415002401850623") Somebody FB 粉絲專頁
+							img(src="images/facebook.png" alt="facebook")
+	// footer
+	include ./footer.jade
+
