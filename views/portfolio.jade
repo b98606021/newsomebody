@@ -1,9 +1,17 @@
-extends layout
-link(rel='stylesheet', href='/stylesheets/portfolio_one.css')
-script.
-	document.write('<style>.noscript { display: none; }</style>');
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/dark.css')
+		link(rel='stylesheet', href='/stylesheets/portfolio_one.css')
+		script(src='/js/modernizr-1.5.min.js')
+		script(src='/js/jquery-1.10.2.min.js')
+		script(src='/js/jquery.min.js')
+		script(src='/js/jquery-1.9.1.js')
+		script.
+			document.write('<style>.noscript { display: none; }</style>');
 
-block content
 	div#main
 		// begin header
 		header
@@ -37,15 +45,15 @@ block content
 		// begin content
 		div#site_content
 			//start gallery HTML containers
-			div#thumb-container
-				div#thumbs.navigation
+			div(id="thumb-container")
+				div(id="thumbs" , class="navigation")
 					h2 &quot;Something Left, Nobody Knows&quot;
-					ul.thumbs noscript
+					ul(class="thumbs noscript")
 						li
 							a.thumb(href="images/portfolio_one/01.jpg")
 								img(src="images/portfolio_one/01_thumb.jpg" alt="one")
 							div.caption
-								div.image-title portfolio_one
+								div(class="image-title portfolio_one")
 									h7 【作品一：Fast food garbage】
 									h6 什麼是「無意識症候群」？
 									p 人們常在聚會、活動、慶祝或買賣之際，無法意識到自己正製造了龐大的垃圾量。Somebody觀察到，人類製造垃圾的瞬間經常是毫無意識的，因此希望藉由詼諧幽默的藝術表現手法，讓人會心一笑的同時，也漸漸意識到自己每個冷感的瞬間，進而減少無意間生產的垃圾量。
@@ -53,12 +61,12 @@ block content
 							a.thumb(href="images/portfolio_one/02.jpg")
 								img(src="images/portfolio_one/02_thumb.jpg" alt="two")
 							div.caption
-								div.image-title portfolio_one &quot;Cheeky monkey and his friend - wooden rabbit&quot;
+								div(class="image-title portfolio_one") &quot;Cheeky monkey and his friend - wooden rabbit&quot;
 						li
 							a.thumb(href="images/portfolio_one/03.jpg")
 								img(src="images/portfolio_one/03_thumb.jpg" alt="three")
 							div.caption
-								div.image-title portfolio_one
+								div(class="image-title portfolio_one")
 									h7 【作品二：Fast food garbage】
 									h6 並列組圖與「Tidy up」
 									p 人們常在聚會、活動、慶祝或買賣之際，無法意識到自己正製造了龐大的垃圾量。Somebody觀察到，人類製造垃圾的瞬間經常是毫無意識的，因此希望藉由詼諧幽默的藝術表現手法，讓人會心一笑的同時，也漸漸意識到自己每個冷感的瞬間，進而減少無意間生產的垃圾量。
@@ -66,7 +74,72 @@ block content
 							a.thumb(href="images/portfolio_one/04.jpg")
 								img(src="images/portfolio_one/04_thumb.jpg" alt="four")
 							div.caption
-								div.image-title portfolio_one
+								div(class="image-title portfolio_one")
 									h7 【作品三：Plastic bags】
 									h6 並列組圖與「Tidy up」
 									p Somebody的系列平面作品「Something left, nobody knows.」充滿視覺震撼力。藉由三張一組的圖像，呈現「Before & After」的效果。第一張是看似稀鬆的日常情境，進入第二張，場景相同，卻人去樓空。眼尖的你有沒有發現，原先的環境遺留下了許多垃圾呢？第三張是 Somebody團隊將原地的垃圾「Tidy up」，以極整齊的排列方式，突顯垃圾的數量可觀，並增加視覺張力。
+						li
+							a.thumb(href="images/portfolio_one/05.jpg")
+								img(src="images/portfolio_one/05_thumb.jpg" alt="five")
+							div.caption
+								div(class="image-title portfolio_one") &quot;Water fountain, lake and trees&quot;
+			// start gallery HTML
+			div#gallery.content
+				div.slideshow-container
+					div.loading#loader
+					div#slideshow.slideshow
+			div#caption.caption-container
+			div(id="controls",class="controls portfolio_one")
+			div(style="clear:both")
+
+		// footer
+		include ./footer.jade
+
+		// script
+		script(type='text/javascript',src='js/jquery.galleriffic.js')
+		script(type='text/javascript',src='js/jquery.opacityrollover.js')
+		script.
+			jQuery(document).ready(function($) {
+			// we only want these styles applied when javascript is enabled
+			$('div.navigation').css({'width' : '450px', 'float' : 'left'});
+			$('div.content').css('display', 'block');
+			// initially set opacity on thumbs and add additional styling for hover effect on thumbs
+			var onMouseOutOpacity = 0.67;
+			$('#thumbs ul.thumbs li').opacityrollover({
+				mouseOutOpacity:   onMouseOutOpacity,
+				mouseOverOpacity:  1.0,
+				fadeSpeed:         'fast',
+				exemptionSelector: '.selected'
+			});
+			// initialize advanced galleriffic gallery
+			var gallery = $('#thumbs').galleriffic({
+				delay:                     3500,
+				numThumbs:                 10,
+				preloadAhead:              10,
+				enableTopPager:            false,
+				enableBottomPager:         true,
+				maxPagesToShow:            7,
+				imageContainerSel:         '#slideshow',
+				controlsContainerSel:      '#controls',
+				captionContainerSel:       '#caption',
+				loadingContainerSel:       '#loading',
+				renderSSControls:          true,
+				renderNavControls:         true,
+				playLinkText:              'Play Slideshow',
+				pauseLinkText:             'Pause Slideshow',
+				prevLinkText:              '&lsaquo; Previous Photo',
+				nextLinkText:              'Next Photo &rsaquo;',
+				nextPageLinkText:          'Next &rsaquo;',
+				prevPageLinkText:          '&lsaquo; Prev',
+				enableHistory:             false,
+				autoStart:                 false,
+				syncTransitions:           true,
+				defaultTransitionDuration: 900,
+				onSlideChange:             function(prevIndex, nextIndex) {
+				// 'this' refers to the gallery, which is an extension of $('#thumbs')
+					this.find('ul.thumbs').children()
+						.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+						.eq(nextIndex).fadeTo('fast', 1.0);
+			}
+			});
+			});

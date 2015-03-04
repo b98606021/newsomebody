@@ -74,7 +74,7 @@ div.caption1 {
   width: 410px;}
   
 div.caption {
-  padding: 10px 0;
+  padding: 10px 0px;
   width: 410px;}
 
 div.image-title1 {
@@ -83,7 +83,8 @@ div.image-title1 {
  
 div.image-title {
   font: normal 130% arial, sans-serif;
-  width: 400px;}
+  width: 400px;
+  padding:0 20px; }
   
 div.navigation {
   /* the navigation style is set using jQuery so that the javascript specific styles won't be applied unless javascript is enabled. */}
