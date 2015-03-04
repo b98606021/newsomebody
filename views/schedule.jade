@@ -1,5 +1,37 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div#main
+		// begin header
+		header
+			div#logo
+				h1<strong> SOMEBODY.
+			nav
+				ul.sf-menu#nav
+					li
+						a(href="/") Home
+					li
+						a(href="/introduction") Introduce
+					li
+						a(href="#") Portfolio
+						ul
+							li
+								a(href="/portfolio_one") Picture
+					li
+						a(href="#") Video
+						ul
+							li
+								a(href="/video1") #1 Only One Bag?
+							li
+								a(href="/video2") #2 Plastic Bag?
+					li
+						a(href="/blog") Blog
+					li.selected
+						a(href="/schedule") Schedule
+					li
+						a(href="/contact") Contact
+		// begin content
+		div#site_content
+			h2 建構中 ... 不便之處敬請原諒
+		//begin footer
+		include ./footer.jade
