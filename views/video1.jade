@@ -1,0 +1,60 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='/stylesheets/dark.css')
+		link(rel='stylesheet', href='/stylesheets/portfolio_two.css')
+		script(src='/js/modernizr-1.5.min.js')
+		script(src='/js/jquery-1.10.2.min.js')
+		script(src='/js/jquery.min.js')
+		script(src='/js/jquery-1.9.1.js')
+
+body
+	div#main
+		// begin header
+		header
+			div#logo
+				h1<strong> SOMEBODY.
+			nav
+				ul.sf-menu#nav
+					li
+						a(href="/") Home
+					li
+						a(href="/introduction") Introduce
+					li
+						a(href="#") Portfolio
+						ul
+							li
+								a(href="/portfolio_one") Picture
+					li.selected
+						a(href="#") Video
+						ul
+							li
+								a(href="/video1") #1 Only One Bag?
+							li
+								a(href="/video2") #2 Plastic Bag?
+					li
+						a(href="/blog") Blog
+					li
+						a(href="/schedule") Schedule
+					li
+						a(href="/contact") Contact
+
+		// begin content
+		div#site_content
+			div(class="navigation-container")
+				div(id="thumbs" , class="navigation")
+					ul(class="thumbs noscript")
+						h1 #1 Only one bag?
+						h4 「塑膠袋裡面住著塑膠袋裏面又住著塑膠袋。」
+						p 我們常把垃圾包在塑膠袋裡，塑膠袋又丟進塑膠袋裡，再把塑膠袋綁個大結，一二三，咚的一聲，投進巨大的塑膠袋裡，他們老死都將在那裏。
+						h5 We are somebody.
+						li
+							iframe(src="http://player.vimeo.com/video/39635994" width="950" height="450" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen)
+		
+		// footer
+		include ./footer.jade
+
+
+
