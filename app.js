@@ -1,9 +1,11 @@
+require('./lib/db');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var cookieSession = require('cookie-session');
 
 var index = require('./routes/index');
 var contact = require('./routes/contact');
@@ -25,6 +27,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cookieSession({
+    key:'node',
+    secret:'hello',
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', index.index);
@@ -35,6 +41,8 @@ app.get('/portfolio_one', portfolio.portfolio_one);
 app.get('/schedule', schedule.schedule);
 app.get('/video1', video.video1);
 app.get('/video2', video.video2);
+app.post('/apis/addmessage', contact.addmessage);
+
 
 
 // catch 404 and forward to error handler

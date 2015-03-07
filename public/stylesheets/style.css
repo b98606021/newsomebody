@@ -137,6 +137,13 @@ header {
   padding: 0;
   min-height: 450px;}
 
+#right_contentt { 
+  float: right;
+  width: 450px;
+  padding: 0;
+  min-height: 450px;
+  height: 450px;}
+
 #right_content img { 
   float: left;}
 

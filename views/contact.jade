@@ -1,5 +1,83 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	div#main
+		// begin header
+		header
+			div#logo
+				h1<strong> SOMEBODY.
+			nav
+				ul.sf-menu#nav
+					li
+						a(href="/") Home
+					li
+						a(href="/introduction") Introduce
+					li
+						a(href="#") Portfolio
+						ul
+							li
+								a(href="/portfolio_one") Picture
+					li
+						a(href="#") Video
+						ul
+							li
+								a(href="/video1") #1 Only One Bag?
+							li
+								a(href="/video2") #2 Plastic Bag?
+					li
+						a(href="/blog") Blog
+					li
+						a(href="/schedule") Schedule
+					li.selected
+						a(href="/contact") Contact
+		// begin content
+		div#site_content
+			div#left_content
+				p 哈囉，這裡是Somebody聯絡處
+				p 如果對於 Somebody 有任何問題、任何建議、或者想要聯絡我們的，都可以在這裡直接與我們接觸喔！或者上我們
+					a(href="http://www.facebook.com/pages/Somebody/415002401850623") FB粉絲團
+					留下訊息
+				p Somebody 感謝您的支持！
+				form(name="addmessage" id="contact" action="/apis/addmessage" method="post")
+					div(class="form_settings")
+						p
+							span Name
+							input(class="contact" type="text" name="Name" value="" )
+						p
+							span Email Address
+							input(class="contact" type="text" name="Email" value="" )
+						p
+							span Message
+							textarea(class="contact textarea" rows="5" cols="50" name="Content" )
+
+						p(style="padding-top: 15px")
+							span &nbsp;
+							input(class="submit" type="submit" name="contact_submitted" value="SEND")
+
+			div#right_contentt
+				for message in messages
+					if (username && authenticated)
+						span Name
+						div(style="margin-left:10px;")= message.Name
+						span Email Address
+						div(style="margin-left:10px;")= message.Email
+						br
+						div= message.Content
+						span Time
+						div= message.CreateDate
+						br
+						div
+							a(href='/contact/'+message.id, style="float:right;") Reply
+					else
+						span Name
+						div(style="margin-left:10px;")= message.Name
+						span Email Address
+						div(style="margin-left:10px;") ****
+						br
+						div= message.Content
+						span Time
+						div= message.CreateDate
+						br
+
+		// footer
+		include ./footer.jade
