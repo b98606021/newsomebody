@@ -1,4 +1,5 @@
 require('./lib/db');
+require('./lib/db2');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -14,6 +15,7 @@ var introduction = require('./routes/introduction');
 var portfolio = require('./routes/portfolio');
 var schedule = require('./routes/schedule');
 var video = require('./routes/video');
+var admin = require('./routes/admin');
 
 var app = express();
 
@@ -42,6 +44,8 @@ app.get('/schedule', schedule.schedule);
 app.get('/video1', video.video1);
 app.get('/video2', video.video2);
 app.post('/apis/addmessage', contact.addmessage);
+app.get('/login', admin.signin);
+app.post('/apis/login', admin.login)
 
 
 

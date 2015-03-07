@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	div#main
+		// begin header
+		header
+			div#logo(style="width:900px;text-align:center;")
+				h1(strong, style="margin:0px auto;") Adminstration Login
+		// begin content
+		div#site_content
+			div(style="width:300px; margin:0px auto;")
+				form(name="login", action="/apis/login", method="post")
+					div
+						p(style="padding-top:50px;")
+							label(strong, style="padding-right:20px;") Admin Account
+							input(type="text", name="user", placeholder="Account")
+						p
+							label(strong, style="padding-right:50px;") Password
+							input(type="password", name="passwd")
+					p
+						input(type="submit", name="submit", class="submit" ,value="login" , style="float:right")
+
+
+		// begin footer
+		include ./footer.jade
