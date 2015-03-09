@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+var mongo = require('mongodb');
+
 
 
 exports.signin = function(req, res, next) {
@@ -8,17 +10,26 @@ exports.signin = function(req, res, next) {
 };
 
 exports.login = function(req, res) {
-	db.collection('admin', function(err, collection){
-		for (var account in rows)
-			if((account.accont == req.body.name)) {
-				console.log('Succedd to login');
-				res.locals.authenticated = req.session.logined ;
-				res.redirect('/contact');
-			};
-			if((account.accont != req.body.name)) {
-				console.log('Fail to login');
-				res.render('/', {
-				title:'Login' }
-			};
-		});
+	var query = {account: req.body.user, passwd: req.body.passwd};
+	mongoose.admin.find(query, function(err, doc){
+		if (doc==1) {
+			var find = first.admin.find(function(error, result) {
+				if (error) {
+					res.send(error)
+					res.render('login');
+				} else {
+					res.locals.username = req.body.user ;
+					res.locals.authenticated = req.session.logined;
+					res.render('index' , {
+						title: 'Administration mode',
+					});
+				}
+			});
+		} else {
+			res.render('login', {
+				title: 'Again'
+			});
+		}
+	});
 };
+
